@@ -31,11 +31,11 @@
 ;; this turns a tsv file with only one column containing known english words
 ;; if you dont have it, simply dont use has-known-words, or make it a constant
 ;; true
-(def eng-words?
-  (into #{}
-        (rest
-         (map #(first (clojure.string/split % #"\t"))
-              (file-lines "/home/shlomiv/Downloads/dictionaryWords.tsv")))))
+(def eng-words? (constantly true))
+#_(into #{}
+      (rest
+       (map #(first (clojure.string/split % #"\t"))
+            (file-lines "/home/shlomiv/Downloads/dictionaryWords.tsv"))))
 
 (defn has-known-words [percent ts]
   (< (quot (count ts) percent) (count (filter eng-words? ts))))
