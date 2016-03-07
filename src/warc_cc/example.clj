@@ -48,6 +48,7 @@
     (let [header (.getHeader r)
           mime (.getMimetype header)]
       (if (plain-text? mime)
+        (println "got " (.available r))
         (let [tokens (enumeration-seq (StringTokenizer. (str (slurp r))))]
           (when (has-known-words 3 tokens)
             (doseq [word tokens]
@@ -79,8 +80,8 @@
 
 
 (deftest test-wordcount-1
-  (.delete (FileSystem/get (Configuration.)) (Path. "/media/HD/tmp/out3-new") true)
-  (is (tool-run (clojure_hadoop.job.) ["CC-MAIN-20131218054935-00092-ip-10-33-133-15.ec2.internal.warc.wet.gz" "/media/HD/tmp/out3-new"])))
+  (.delete (FileSystem/get (Configuration.)) (Path. "/tmp/out3-new") true)
+  (is (tool-run (clojure_hadoop.job.) ["CC-MAIN-20131218054935-00092-ip-10-33-133-15.ec2.internal.warc.wet.gz" "/tmp/out3-new"])))
 
 ;;(run-tests)
 

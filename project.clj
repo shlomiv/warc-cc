@@ -3,9 +3,9 @@
   :url "http://example.com/FIXME"
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
-  :dependencies [[org.clojure/clojure "1.5.1" ]
+  :dependencies [[org.clojure/clojure "1.7.0" ]
                  [clojure-hadoop/clojure-hadoop "1.4.4"
-                  :exclusions [clojure-complete commons-httpclient org.codehaus.jackson/jackson-core-asl]]
+                  :exclusions [clojure-complete commons-httpclient]]
                  [org.netpreserve.commons/webarchive-commons "1.1.4"
                   :exclusions [org.apache.hadoop/hadoop-core commons-lang commons-logging log4j commons-configuration]]
                  ]
